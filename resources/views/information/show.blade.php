@@ -24,8 +24,6 @@
             <p><strong>Education Background:</p></strong>
             <p>{{$info['education']}}</p>
         </div>
-
     </div>
-
 </div>
 @endsection
