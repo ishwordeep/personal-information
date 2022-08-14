@@ -4,15 +4,28 @@
 
 
 @section('content')
-<div class="container text-light">
-<h6>Name:{{$info['name']}}</h6>
-<h6>Date of Birth:{{$info['dob']}}</h6>
-<h6>Address:{{$info['address']}}</h6>
-<h6>Gender:{{$info['gender']}}</h6>
-<h6>Email:{{$info['email']}}</h6>
-<h6>Nationality:{{$info['nationality']}}</h6>
-<h6>Mode of Contact:{{$info['modeofcontact']}}</h6>
-<h6>Education Background:</h6><p>{{$info['education']}}</p>
+<div class="container">
+    <div class="card mt-5">
+        <div class="row p-4">
+            <div class="col-6 ">
+                <p><strong>Name: </strong>{{$info['name']}}</p>
+                <p><strong>Date of Birth: </strong>{{$info['dob']}}</p>
+                <p><strong>Address: </strong>{{$info['address']}}</p>
+                <p><strong>Gender: </strong>{{$info['gender']}}</p>
+            </div>
+            <div class="col-6">
+                <p><strong>Email: </strong>{{$info['email']}}</p>
+                <p><strong>Nationality: </strong>{{$info['nationality']}}</p>
+                <p><strong>Mode of Contact: </strong>{{$info['modeofcontact']}}</p>
+            </div>
+        </div>
+   
+        <div class="row p-4">
+            <p><strong>Education Background:</p></strong>
+            <p>{{$info['education']}}</p>
+        </div>
+
+    </div>
 
 </div>
 @endsection
