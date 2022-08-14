@@ -40,18 +40,19 @@ class InformationController extends Controller
     }
     public function store(Request $request)
     {
-        $id = Str::uuid();
-        $info = array(
-            'id' => $id,
-            'name' => $request->name,
-            'gender' => $request->gender,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'address' => $request->address,
-            'dob' => $request->dob,
-            'mode-of-contact' => $request->modeofcontact,
-            'education' => $request->education,
-        );
+        $uuid = (string) Str::uuid();
+        $info = $request->validate([
+            'name' => 'required',
+            'gender' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'dob' => 'required',
+            'modeofcontact' => 'required',
+            'education' => 'required',
+            'nationality' => 'required'
+        ]);
+        array_unshift($info,$uuid);
         $file = 'information.csv';
         $destinationPath = public_path().'/';;
 
@@ -78,44 +79,12 @@ class InformationController extends Controller
                     $info['dob'] = $data[6];
                     $info['modeofcontact'] = $data[7];
                     $info['education'] = $data[8];
+                    $info['nationality'] = $data[9];
                 }
             }
         }
         fclose($open);
         return view('information.show', compact('info'));
-
     }
-    public function destroy($id)
-    {
-        $informations = [];
-        $destinationPath = public_path().'/';
-        $file = 'information.csv';
-
-        $fileTemp = 'test_file_temp.csv';
-        $filePointerTemp = fopen($destinationPath . $fileTemp, "a");
-
-        if (($open = fopen($destinationPath . $file, "r")) !== FALSE) {
-            while (($data = fgetcsv($open, null, ";")) !== FALSE) {
-                if ($id === $data[0]) {
-                } else {
-                    $info['id'] = $data[0];
-                    $info['name'] = $data[1];
-                    $info['gender'] = $data[2];
-                    $info['phone'] = $data[3];
-                    $info['email'] = $data[4];
-                    $info['address'] = $data[5];
-                    $info['dob'] = $data[6];
-                    $info['modeofcontact'] = $data[7];
-                    $info['education'] = $data[8];
-                    array_push($informations, $info);
-                    fputcsv($filePointerTemp, $info, ';');
-                }
-            }
-            fclose($open);
-            fclose($filePointerTemp);
-            unlink($destinationPath . $file);
-            rename($destinationPath . $fileTemp, $destinationPath . $file);
-        }
-        return redirect()->route('home');
-    }
+    
 }

@@ -10,6 +10,7 @@
 <h6>Address:{{$info['address']}}</h6>
 <h6>Gender:{{$info['gender']}}</h6>
 <h6>Email:{{$info['email']}}</h6>
+<h6>Nationality:{{$info['nationality']}}</h6>
 <h6>Mode of Contact:{{$info['modeofcontact']}}</h6>
 <h6>Education Background:</h6><p>{{$info['education']}}</p>
 

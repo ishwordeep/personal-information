@@ -30,6 +30,11 @@
                     <label class="input-group-text" for="" style="min-width: 100px;">Name</label>
                     <input type="text" id="name" name="name" value="" class="form-control" style="min-width: 100px;">
                 </div>
+                @error('name')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
 
             {{-- Gender --}}
@@ -49,6 +54,11 @@
                         <label class="custom-control-label" for="gender3">Other</label>
                     </div>
                 </div>
+                @error('gender')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             {{-- Phone --}}
             <div class="col-sm-6 ">
@@ -56,6 +66,11 @@
                     <label class="input-group-text" for="" style="min-width: 100px;">Phone</label>
                     <input type="text" id="phone" name="phone"  class="form-control" style="min-width: 100px;">
                 </div>
+                @error('phone')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
 
             {{-- Email --}}
@@ -64,6 +79,11 @@
                     <label class="input-group-text" for="" style="min-width: 100px;">Email</label>
                     <input type="email" id="email" name="email" class="form-control" style="min-width: 100px;">
                 </div>
+                @error('email')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
 
             {{-- Address --}}
@@ -72,6 +92,11 @@
                     <label class="input-group-text" for="" style="min-width: 100px;">Address</label>
                     <input type="text" id="address" name="address" class="form-control" style="min-width: 100px;">
                 </div>
+                @error('address')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
 
             {{-- Address --}}
@@ -80,6 +105,11 @@
                     <label class="input-group-text" for="" style="min-width: 100px;">Nationality</label>
                     <input type="text" id="nationality" name="nationality" class="form-control" style="min-width: 100px;">
                 </div>
+                @error('nationality')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
 
             {{-- Date of Birth --}}
@@ -88,6 +118,12 @@
                     <label class="input-group-text" for="" style="min-width: 100px;">Date Of Birth</label>
                     <input type="date" id="dob" name="dob" class="form-control" style="min-width: 100px;">
                 </div>
+                @error('dob')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+                @enderror
+                
             </div>
               {{-- Mode of contact --}}
             <div class="col-sm-6 ">
@@ -105,6 +141,11 @@
                         <input type="radio" id="mode-of-contact-3" name="modeofcontact" class="custom-control-input" value="None">
                         <label class="custom-control-label" for="mode-of-contact-3">None</label>
                     </div>
+                    @error('modeofcontact')
+                    <div class="text-danger">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             </div>
 
@@ -114,6 +155,11 @@
                     <p class="" for="" style="min-width: 100px;">Education Background</p>
                     <textarea rows="6" cols="100" id="education" name="education" class="p-2"></textarea>
                 </div>
+                @error('education')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
 
           

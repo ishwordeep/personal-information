@@ -20,6 +20,5 @@ Route::get('/', function () {
 
 Route::get('/information',[InformationController::class,'index'])->name('index.information');
 Route::get('information/create',[InformationController::class,'create'])->name('create.information');
+Route::post('information',[InformationController::class,'store'])->name('store.information');
 Route::get('/information/{id}',[InformationController::class,'show'])->name('show.information');
-Route::post('information/store',[InformationController::class,'store'])->name('store.information');
-Route::delete('information/delete{id}',[InformationController::class,'destroy'])->name('delete.information');
