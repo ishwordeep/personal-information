@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InformationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect('/information');
+})->name('home');
+
+Route::get('/information',[InformationController::class,'index'])->name('index.information');
+Route::get('information/create',[InformationController::class,'create'])->name('create.information');
+Route::get('/information/{id}',[InformationController::class,'show'])->name('show.information');
+Route::post('information/store',[InformationController::class,'store'])->name('store.information');
+Route::delete('information/delete{id}',[InformationController::class,'destroy'])->name('delete.information');
